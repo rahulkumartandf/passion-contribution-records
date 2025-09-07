@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Excel Viewer on GitHub Pages</title>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+    <h2>Excel Content Display</h2>
+    <input type="file" id="file-input" />
+    <br><br>
+    <div id="excel-data"></div>
+
+    <script>
+        document.getElementById('file-input').addEventListener('change', function (e) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var data = new Uint8Array(e.target.result);
+                var workbook = XLSX.read(data, { type: 'array' });
+                var html = '';
+                workbook.SheetNames.forEach(function (sheetName) {
+                    var XL_row_object = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1 });
+                    html += '<h3>' + sheetName + '</h3><table border="1">';
+                    XL_row_object.forEach(function (row) {
+                        html += '<tr>';
+                        row.forEach(function (cell) {
+                            html += '<td>' + cell + '</td>';
+                        });
+                        html += '</tr>';
+                    });
+                    html += '</table><br>';
+                });
+                document.getElementById('excel-data').innerHTML = html;
+            };
+            reader.readAsArrayBuffer(e.target.files);
+        });
+    </script>
+</body>
+</html>
