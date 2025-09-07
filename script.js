@@ -3,26 +3,39 @@ async function loadExcel() {
   const arrayBuffer = await response.arrayBuffer();
 
   const workbook = XLSX.read(arrayBuffer, { type: "array" });
-  const sheetName = workbook.SheetNames[0]; // first sheet
+  const sheetName = workbook.SheetNames[0]; // First sheet
   const sheet = workbook.Sheets[sheetName];
 
-  // Convert sheet to JSON
+  // Convert to JSON (rows & headers)
   const data = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
-  // Render as table
-  const table = document.createElement("table");
-  table.border = "1";
-  data.forEach(row => {
-    const tr = document.createElement("tr");
+  if (data.length === 0) {
+    document.getElementById("excel-data").innerText = "No data found!";
+    return;
+  }
+
+  // Build HTML table
+  let table = `<table id="excelTable" class="display"><thead><tr>`;
+  data[0].forEach(header => { table += `<th>${header}</th>`; });
+  table += `</tr></thead><tbody>`;
+
+  data.slice(1).forEach(row => {
+    table += "<tr>";
     row.forEach(cell => {
-      const td = document.createElement("td");
-      td.textContent = cell;
-      tr.appendChild(td);
+      table += `<td>${cell !== undefined ? cell : ""}</td>`;
     });
-    table.appendChild(tr);
+    table += "</tr>";
   });
 
-  document.getElementById("excel-data").appendChild(table);
+  table += "</tbody></table>";
+
+  document.getElementById("excel-data").innerHTML = table;
+
+  // Initialize DataTables
+  $("#excelTable").DataTable({
+    pageLength: 10,
+    responsive: true
+  });
 }
 
 loadExcel();
