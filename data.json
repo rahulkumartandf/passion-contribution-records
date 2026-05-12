@@ -1,0 +1,6 @@
+[
+  { "name": "Person 1", "amount": 1000 },
+  { "name": "Person 2", "amount": 1500 },
+  { "name": "Person 3", "amount": 2000 },
+  { "name": "Person 4", "amount": 1200 }
+]
