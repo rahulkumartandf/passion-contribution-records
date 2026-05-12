@@ -3,13 +3,14 @@ async function loadData() {
     const response = await fetch("data.json");
     const data = await response.json();
     
-    // Calculate total amount
-    const total = data.reduce((sum, item) => sum + item.amount, 0);
-    
-    // Display the total
-    document.getElementById("totalAmount").innerText = `$${total.toLocaleString()}`;
+    // Display match information
+    document.getElementById("matchName").innerText = data.matchName;
+    document.getElementById("expectedFee").innerText = `$${data.expectedFee.toLocaleString()}`;
+    document.getElementById("actualFeeReceived").innerText = `$${data.actualFeeReceived.toLocaleString()}`;
+    document.getElementById("difference").innerText = `$${data.difference.toLocaleString()}`;
+    document.getElementById("status").innerText = data.status;
   } catch (error) {
-    document.getElementById("totalAmount").innerText = "Error loading data";
+    document.getElementById("matchName").innerText = "Error loading data";
     console.error("Error:", error);
   }
 }

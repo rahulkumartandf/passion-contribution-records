@@ -3,14 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fund Total</title>
+  <title>Match Fee Tracker</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Total Fund Amount</h1>
-  <div class="fund-container">
-    <p class="fund-label">Total Available:</p>
-    <p class="fund-amount" id="totalAmount">Loading...</p>
+  <div class="container">
+    <h1 id="matchName">Loading...</h1>
+    <div class="info-grid">
+      <div class="info-box">
+        <p class="label">Expected Fee</p>
+        <p class="value" id="expectedFee">$0</p>
+      </div>
+      <div class="info-box">
+        <p class="label">Actual Fee Received</p>
+        <p class="value" id="actualFeeReceived">$0</p>
+      </div>
+      <div class="info-box">
+        <p class="label">Difference</p>
+        <p class="value highlight" id="difference">$0</p>
+      </div>
+      <div class="info-box">
+        <p class="label">Status</p>
+        <p class="value" id="status">-</p>
+      </div>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
