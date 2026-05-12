@@ -1,7 +1,30 @@
-{
-  "matchName": "Total Transaction",
-  "expectedFee": 5000,
-  "actualFeeReceived": 5700,
-  "difference": 700,
-  "status": "More than Expected"
-}
+[
+  {
+    "matchName": "Match 1",
+    "expectedFee": 2000,
+    "actualFeeReceived": 2500,
+    "difference": 500,
+    "status": "More than Expected"
+  },
+  {
+    "matchName": "Match 2",
+    "expectedFee": 3000,
+    "actualFeeReceived": 3200,
+    "difference": 200,
+    "status": "More than Expected"
+  },
+  {
+    "matchName": "Match 3",
+    "expectedFee": 2400,
+    "actualFeeReceived": 2300,
+    "difference": -100,
+    "status": "Less than Expected"
+  },
+  {
+    "matchName": "Total Transaction",
+    "expectedFee": 7400,
+    "actualFeeReceived": 8000,
+    "difference": 600,
+    "status": "More than Expected"
+  }
+]
