@@ -21,10 +21,17 @@
     "status": "Less than Expected"
   },
   {
+    "matchName": "Match 4",
+    "expectedFee": 2500,
+    "actualFeeReceived": 2200,
+    "difference": -300,
+    "status": "Less than Expected"
+  },
+  {
     "matchName": "Total Transaction",
-    "expectedFee": 7400,
-    "actualFeeReceived": 8000,
-    "difference": 600,
+    "expectedFee": 9900,
+    "actualFeeReceived": 10200,
+    "difference": 300,
     "status": "More than Expected"
   }
 ]
