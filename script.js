@@ -31,9 +31,9 @@ async function loadData() {
     const status = lastRow[5] ? lastRow[5].trim() : "-";
     
     // Display match information
-    document.getElementById("expectedFee").innerText = `$${expectedFee.toLocaleString()}`;
-    document.getElementById("actualFeeReceived").innerText = `$${actualFeeReceived.toLocaleString()}`;
-    document.getElementById("difference").innerText = `$${difference.toLocaleString()}`;
+    document.getElementById("expectedFee").innerText = `₹${expectedFee.toLocaleString()}`;
+    document.getElementById("actualFeeReceived").innerText = `₹${actualFeeReceived.toLocaleString()}`;
+    document.getElementById("difference").innerText = `₹${difference.toLocaleString()}`;
     document.getElementById("status").innerText = status;
   } catch (error) {
     document.getElementById("expectedFee").innerText = "Error loading data";
